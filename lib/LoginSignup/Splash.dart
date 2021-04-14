@@ -1,29 +1,11 @@
 import 'dart:async';
 
+import 'package:ecommerce/LoginSignup/LandingPage.dart';
 import 'package:ecommerce/Utils/CommonMethods.dart';
-
-import 'LandingPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Splash extends StatefulWidget {
-  @override
-  _SplashState createState() {
-    return _SplashState();
-  }
-}
-
-void startTimer(BuildContext context) {
-  int duration = 5;
-  Timer.periodic(Duration(seconds: 1), (timer) {
-    if (timer.tick > duration) {
-      timer.cancel();
-      Navigator.pushReplacementNamed(context, "/login");
-    }
-  });
-}
-
-class _SplashState extends State<Splash> {
+class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     startTimer(context);
@@ -50,3 +32,15 @@ class _SplashState extends State<Splash> {
     );
   }
 }
+
+void startTimer(BuildContext context) {
+  int duration = 5;
+  Timer.periodic(Duration(seconds: 1), (timer) {
+    if (timer.tick > duration) {
+      timer.cancel();
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LandingPage()));
+    }
+  });
+}
+
+

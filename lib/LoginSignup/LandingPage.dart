@@ -1,9 +1,8 @@
-import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../Utils/CommonMethods.dart';
+import 'Signup.dart';
 
 class LandingPage extends StatefulWidget {
   @override
@@ -16,13 +15,10 @@ class _LandingPageState extends State<LandingPage> {
     final loginKey = GlobalKey<FormState>();
     return Scaffold(
       backgroundColor: Colors.red[400],
-      body: DoubleBackToCloseApp(
-        snackBar: const SnackBar(
-          content: Text('Tap back again to leave'),
-        ),
-        child: Form(
-          key: loginKey,
-          child: Center(
+      body: Form(
+        key: loginKey,
+        child: Center(
+          child: SingleChildScrollView(
             child: Container(
               padding: EdgeInsets.all(10.0),
               margin: EdgeInsets.all(2.0),
@@ -49,8 +45,8 @@ class _LandingPageState extends State<LandingPage> {
                       ),
 
                       ///UserName / email Add
-                      Padding(
-                        padding: EdgeInsets.all(5),
+                      Container(
+                        margin: EdgeInsets.all(10),
                         child: TextFormField(
                           style: TextStyle(color: Colors.black, fontSize: 16),
                           decoration: textFieldStyle("Enter UserName/Email"),
@@ -64,8 +60,8 @@ class _LandingPageState extends State<LandingPage> {
                       ),
 
                       ///Password
-                      Padding(
-                        padding: EdgeInsets.all(5),
+                      Container(
+                        margin: EdgeInsets.all(10),
                         child: TextFormField(
                           obscureText: true,
                           style: TextStyle(color: Colors.black, fontSize: 16),
@@ -111,44 +107,49 @@ class _LandingPageState extends State<LandingPage> {
                       ///register
                       Padding(
                         padding: EdgeInsets.only(bottom: 10),
-                        child: FlatButton(
-                          minWidth: 150,
-                          height: 40,
-                          color: Colors.red[600],
-                          shape: RoundedRectangleBorder(
-                              side: BorderSide(
-                                  color: Colors.red[800], width: 1.0),
-                              borderRadius: new BorderRadius.circular(5.0)),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.all(5),
-                                child: Icon(
-                                  Icons.person_add,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.all(5),
-                                child: Text("Register",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold)),
-                              )
-                            ],
-                          ),
-                          onPressed: () {
-                            Navigator.pushNamed(context, "/signup");
-                          },
-                        ),
+                        child: getRegistrationButton(),
                       )
                     ],
                   ),
                 ),
               ),
             ),
+          ),
+        ),
+      ),
+    );
+  }
+  GestureDetector getRegistrationButton()
+  {
+    return GestureDetector(
+      onTap: ()
+      {
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>Signup()));
+      },
+      child: Container(
+        width: 150,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),    color: Colors.red),
+        height: 40,
+        child: Center(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(5),
+                child: Icon(
+                  Icons.person_add,
+                  color: Colors.white,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(5),
+                child: Text("Register",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold)),
+              )
+            ],
           ),
         ),
       ),

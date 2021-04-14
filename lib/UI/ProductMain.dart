@@ -1,4 +1,3 @@
-import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:ecommerce/UI/Home.dart';
 import 'package:ecommerce/UI/Search.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +12,8 @@ class ProductMain extends StatefulWidget {
   _ProductMain createState() => _ProductMain();
 }
 
-StatefulWidget getPage(int value) {
+StatefulWidget getPage(int value)
+{
   StatefulWidget val = Home();
   switch (value) {
     case 0:
@@ -38,11 +38,9 @@ class _ProductMain extends State<ProductMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: DoubleBackToCloseApp(
-          snackBar: const SnackBar(
-            content: Text('Tap back again to leave'),
-          ),
-          child: current),
+      body: Center(
+        child: current,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentTabIndex,

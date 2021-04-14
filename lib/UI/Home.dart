@@ -21,7 +21,8 @@ class _Home extends State<Home> {
                   Icons.shopping_cart,
                   color: Colors.white,
                 ),
-                onPressed: null)
+                onPressed: null
+            )
           ],
         ),
         body: SingleChildScrollView(
@@ -35,7 +36,7 @@ class _Home extends State<Home> {
                     height: 200.0,
                     autoPlay: true,
                     autoPlayAnimationDuration: Duration(seconds: 2),
-                    enlargeCenterPage: true,
+                    enlargeCenterPage: false,
                   ),
                   items: [1, 2, 3, 4, 5].map((i) {
                     return Builder(

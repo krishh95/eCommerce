@@ -2,8 +2,8 @@ import 'package:ecommerce/LoginSignup/LandingPage.dart';
 import 'package:ecommerce/LoginSignup/Signup.dart';
 import 'package:ecommerce/LoginSignup/Splash.dart';
 import 'package:ecommerce/UI/Home.dart';
-import 'package:ecommerce/UI/ProductMain.dart';
 import 'package:ecommerce/UI/MyNotification.dart';
+import 'package:ecommerce/UI/ProductMain.dart';
 import 'package:ecommerce/UI/Profile.dart';
 import 'package:ecommerce/UI/Search.dart';
 import 'package:flutter/material.dart';
@@ -67,8 +67,7 @@ AppBar getAppBar() {
 
 Map<String, WidgetBuilder> routes() {
   return {
-    '/': (context) => ProductMain(),
-    /*'/': (context) => Splash(),*/
+    '/': (context) => Splash(),
     '/login': (context) => LandingPage(),
     '/signup': (context) => Signup(),
     '/productMain': (context) => ProductMain(),
@@ -85,26 +84,61 @@ InputDecoration textFieldStyle(String HintText) {
     labelStyle: TextStyle(fontSize: 13, color: Colors.grey[400]),
     fillColor: Colors.white,
     border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: BorderRadius.circular(10.0),
         borderSide: BorderSide(
           color: Colors.grey[300],
           width: 1.2,
         )),
     errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: BorderRadius.circular(10.0),
         borderSide: BorderSide(
           color: Colors.red[600],
           width: 1.2,
         )),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(15.0),
+      borderRadius: BorderRadius.circular(10.0),
       borderSide: BorderSide(
         color: Colors.red[400],
         width: 1.2,
       ),
     ),
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(15.0),
+      borderRadius: BorderRadius.circular(10.0),
+      borderSide: BorderSide(
+        color: Colors.grey[300],
+        width: 1.2,
+      ),
+    ),
+  );
+}
+InputDecoration textFieldStyleWithIcon(String HintText,Icon icon) {
+  return InputDecoration(
+    prefixIcon: icon,
+     labelText: HintText,
+    labelStyle: TextStyle(fontSize: 13, color: Colors.grey[400]),
+    fillColor: Colors.white,
+    border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.0),
+        borderSide: BorderSide(
+          color: Colors.grey[300],
+          width: 1.2,
+        )),
+    errorBorder: OutlineInputBorder(
+
+        borderRadius: BorderRadius.circular(10.0),
+        borderSide: BorderSide(
+          color: Colors.red[600],
+          width: 1.2,
+        )),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10.0),
+      borderSide: BorderSide(
+        color: Colors.red[400],
+        width: 1.2,
+      ),
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10.0),
       borderSide: BorderSide(
         color: Colors.grey[300],
         width: 1.2,
